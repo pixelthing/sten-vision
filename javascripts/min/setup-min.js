@@ -1,0 +1,1 @@
+var setup=function(){var t=function(){n()},n=function(){"ontouchstart"in document.documentElement||document.querySelector("html").classList.add("no-touch")};return{init:t}}();setup.init();

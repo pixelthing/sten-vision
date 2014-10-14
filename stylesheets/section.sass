@@ -1,0 +1,73 @@
+.vision
+  position:           relative
+  width:              100vw
+  height:             100vh
+  max-height:         100vw
+  max-width:          100vh
+  margin:             0 auto
+  -webkit-perspective:        300
+  +media-query(xxs)
+    display:          block
+    max-width:        9999em
+    max-height:       9999em
+    width:            auto
+    height:           auto
+
+
+.vision__card
+  position:           absolute
+  display:            -webkit-flex
+  -webkit-align-items:      center
+  -webkit-justify-content:      center
+  z-index:            1
+  width:              33.333%
+  height:             33.333%
+  padding-top:        100%
+  padding:            1em
+  background:         #eee
+  text-align:         center
+  overflow:           hidden
+  -webkit-transition: all 200ms
+
+  +media-query(xxs)
+    position:         static
+    width:            auto
+
+.vision__card--0
+  left:               33.333%
+  top:                33.333%
+  background-color:   #F9E800
+.vision__card--1
+  left:               0
+  top:                0
+.vision__card--2
+  left:               33.333%
+  top:                0
+  background-color:   #E6E6E6
+.vision__card--3
+  left:               66.667%
+  top:                0
+  background-color:   #ddd
+.vision__card--4
+  left:               0
+  top:                33.333%
+  background-color:   #d3d3d3
+.vision__card--5
+  left:               66.667%
+  top:                33.333%
+  background-color:   #ccc
+.vision__card--6
+  left:               0
+  top:                66.667%
+  background-color:   #bbb
+.vision__card--7
+  left:               33.333%
+  top:                66.667%
+  background-color:   #b2b2b2
+.vision__card--8
+  left:               66.667%
+  top:                66.667%
+  background-color:   #a1a1a1
+
+.vision__card__desc
+  display:            none

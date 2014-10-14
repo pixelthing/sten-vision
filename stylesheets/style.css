@@ -26,7 +26,7 @@ html, body {
   position: relative;
   height: 100%;
   margin: 0 auto;
-  -webkit-perspective: 300; }
+  -webkit-perspective: 800; }
   @media screen and (max-width: 479px) {
     .vision {
       display: block;
@@ -49,7 +49,7 @@ html, body {
   text-align: center;
   overflow: hidden;
   -webkit-transition: all 200ms;
-  -webkit-transform: rotate(0) rotate3d(1, 0, 0, 0); }
+  -webkit-transform: rotateX(0) rotateY(0) rotateZ(0); }
   @media screen and (max-width: 479px) {
     .vision__card {
       position: static;

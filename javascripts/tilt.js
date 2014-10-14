@@ -3,13 +3,13 @@ var tilt = function(){
   var allCards = document.querySelectorAll(".vision__card");
   var config = {
     'throttle':     100,    // how much to throttle the orientation event (in millisecond intervals), to stop it choking CPU
-    'betaCoef':     0.1,    // the fraction of angle to move front-back - ie 0.5 = for every 10deg of actual movement, the panels move 5deg
-    'betaMax':      10, 
-    'gammaCoef':    0.05,    // the fraction of angle to move left-right - ie 0.5 = for every 10deg of actual movement, the panels move 5deg
-    'gammaMax':     5,
-    'DelayReset':   200     // the delay in milliseconds before we reset the datum
+    'betaCoef':     0.2,    // the fraction of angle to move front-back - ie 0.5 = for every 10deg of actual movement, the panels move 5deg
+    'gammaCoef':    0.2,    // the fraction of angle to move left-right - ie 0.5 = for every 10deg of actual movement, the panels move 5deg
+    'DelayReset':   0       // the delay in milliseconds before we reset the datum
   }
   var tiltObj = {
+    'lastResetTime': null,
+
     'beta':         null,
     'betaZero':     0,
     'betaAdjusted': null,
@@ -66,8 +66,8 @@ var tilt = function(){
       tiltObj.gammaAdjusted = tiltObj.gamma - tiltObj.gammaZero;
       tiltObj.gammaAdjusted = ( Math.abs(tiltObj.gammaAdjusted) < 3 ? 0.001 : tiltObj.gammaAdjusted );
 
-      if ( tiltObj.betaAdjusted != tiltObj.betaLast ) {
-        tiltObj.betaLastTime = +new Date;
+      if ( tiltObj.betaAdjusted != tiltObj.betaLast | tiltObj.gammaAdjusted != tiltObj.gammaLast ) {
+        tiltObj.lastResetTime = +new Date;
         tiltHandler();
       } else {
         tiltReset();
@@ -83,15 +83,16 @@ var tilt = function(){
     styleRotateBeta = ( Math.abs(styleRotateBeta) < 2 ? 0 : styleRotateBeta );
     styleRotateGamma = tiltObj.gammaAdjusted * -config.gammaCoef;
     styleRotateGamma = ( Math.abs(styleRotateGamma) < 2 ? 0 : styleRotateGamma );
+    //console.log(styleRotateBeta + ' : ' + styleRotateGamma );
 
     [].forEach.call( allCards, function( card ) {
-      card.style.webkitTransform = "rotate(" + styleRotateGamma + "deg) rotate3d(1,0,0, " + styleRotateBeta + "deg)";
+      card.style.webkitTransform = "rotateX(" + styleRotateBeta + "deg) rotateY(" + styleRotateGamma + "deg)";
     });
   };
 
   var tiltReset = function() {
     currentTime = +new Date;
-    if ( ( currentTime - tiltObj.betaLastTime ) > config.DelayReset ) {
+    if ( ( currentTime - tiltObj.lastResetTime ) > config.DelayReset ) {
       if ( tiltObj.betaZero != tiltObj.betaLast ) {
         tiltObj.betaZero = tiltObj.beta;
       }

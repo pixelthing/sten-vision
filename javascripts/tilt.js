@@ -3,10 +3,11 @@ var tilt = function(){
   var allCards = document.querySelectorAll(".vision__card");
   var config = {
     'throttle':     100,    // how much to throttle the orientation event (in millisecond intervals), to stop it choking CPU
-    'betaCoef':     0.3,    // the fraction of angle to move front-back - ie 0.5 = for every 10deg of actual movement, the panels move 5deg
+    'betaCoef':     0.1,    // the fraction of angle to move front-back - ie 0.5 = for every 10deg of actual movement, the panels move 5deg
     'betaMax':      10, 
-    'gammaCoef':    0.1,    // the fraction of angle to move left-right - ie 0.5 = for every 10deg of actual movement, the panels move 5deg
-    'gammaMax':     5
+    'gammaCoef':    0.05,    // the fraction of angle to move left-right - ie 0.5 = for every 10deg of actual movement, the panels move 5deg
+    'gammaMax':     5,
+    'DelayReset':   200     // the delay in milliseconds before we reset the datum
   }
   var tiltObj = {
     'beta':         null,
@@ -59,14 +60,14 @@ var tilt = function(){
       // BETA: front-to-back
       tiltObj.beta = Math.round( eventData.beta );
       tiltObj.betaAdjusted = tiltObj.beta - tiltObj.betaZero;
-      tiltObj.betaAdjusted = ( Math.abs(tiltObj.betaAdjusted) < 3 ? 0 : tiltObj.betaAdjusted );
+      tiltObj.betaAdjusted = ( Math.abs(tiltObj.betaAdjusted) < 3 ? 0.001 : tiltObj.betaAdjusted );
       // GAMMA: left-to-right
       tiltObj.gamma = Math.round( eventData.gamma );
       tiltObj.gammaAdjusted = tiltObj.gamma - tiltObj.gammaZero;
-      tiltObj.gammaAdjusted = ( Math.abs(tiltObj.gammaAdjusted) < 3 ? config.gammaMax : tiltObj.gammaAdjusted );
+      tiltObj.gammaAdjusted = ( Math.abs(tiltObj.gammaAdjusted) < 3 ? 0.001 : tiltObj.gammaAdjusted );
 
       if ( tiltObj.betaAdjusted != tiltObj.betaLast ) {
-        betaLastTime = +new Date;
+        tiltObj.betaLastTime = +new Date;
         tiltHandler();
       } else {
         tiltReset();
@@ -90,7 +91,7 @@ var tilt = function(){
 
   var tiltReset = function() {
     currentTime = +new Date;
-    if ( ( currentTime - tiltObj.betaLastTime ) > 3 ) {
+    if ( ( currentTime - tiltObj.betaLastTime ) > config.DelayReset ) {
       if ( tiltObj.betaZero != tiltObj.betaLast ) {
         tiltObj.betaZero = tiltObj.beta;
       }

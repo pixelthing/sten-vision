@@ -15,7 +15,8 @@ h1, h2, h3, h4 {
   font-weight: normal;
   font-style: normal; }
 
-body {
+html, body {
+  height: 100%;
   margin: 0; }
 
 .intro {
@@ -23,10 +24,7 @@ body {
 
 .vision {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  max-height: 100vw;
-  max-width: 100vh;
+  height: 100%;
   margin: 0 auto;
   -webkit-perspective: 300; }
   @media screen and (max-width: 479px) {
@@ -50,7 +48,8 @@ body {
   background: #eee;
   text-align: center;
   overflow: hidden;
-  -webkit-transition: all 200ms; }
+  -webkit-transition: all 200ms;
+  -webkit-transform: rotate(0) rotate3d(1, 0, 0, 0); }
   @media screen and (max-width: 479px) {
     .vision__card {
       position: static;
@@ -71,7 +70,7 @@ body {
   background-color: #E6E6E6; }
 
 .vision__card--3 {
-  left: 66.667%;
+  left: 66.666%;
   top: 0;
   background-color: #ddd; }
 
@@ -81,23 +80,23 @@ body {
   background-color: #d3d3d3; }
 
 .vision__card--5 {
-  left: 66.667%;
+  left: 66.666%;
   top: 33.333%;
   background-color: #ccc; }
 
 .vision__card--6 {
   left: 0;
-  top: 66.667%;
+  top: 66.666%;
   background-color: #bbb; }
 
 .vision__card--7 {
   left: 33.333%;
-  top: 66.667%;
+  top: 66.666%;
   background-color: #b2b2b2; }
 
 .vision__card--8 {
-  left: 66.667%;
-  top: 66.667%;
+  left: 66.666%;
+  top: 66.666%;
   background-color: #a1a1a1; }
 
 .vision__card__desc {

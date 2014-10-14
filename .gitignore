@@ -1,2 +1,4 @@
 
-*.sassc
+stylesheets/.sass-cache/*
+
+javascripts/min/*

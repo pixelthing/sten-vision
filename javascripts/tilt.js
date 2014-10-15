@@ -3,8 +3,8 @@ var tilt = function(){
   var allCards = document.querySelectorAll(".vision__card");
   var config = {
     'throttle':     100,    // how much to throttle the orientation event (in millisecond intervals), to stop it choking CPU
-    'betaCoef':     0.2,    // the fraction of angle to move front-back - ie 0.5 = for every 10deg of actual movement, the panels move 5deg
-    'gammaCoef':    0.2,    // the fraction of angle to move left-right - ie 0.5 = for every 10deg of actual movement, the panels move 5deg
+    'betaCoef':     0.3,    // the fraction of angle to move front-back - ie 0.5 = for every 10deg of actual movement, the panels move 5deg
+    'gammaCoef':    0.3,    // the fraction of angle to move left-right - ie 0.5 = for every 10deg of actual movement, the panels move 5deg
     'DelayReset':   0       // the delay in milliseconds before we reset the datum
   }
   var tiltObj = {
@@ -79,7 +79,7 @@ var tilt = function(){
 
   var tiltHandler = function() {
 
-    styleRotateBeta = tiltObj.betaAdjusted * -config.betaCoef;
+    styleRotateBeta = tiltObj.betaAdjusted * config.betaCoef;
     styleRotateBeta = ( Math.abs(styleRotateBeta) < 2 ? 0 : styleRotateBeta );
     styleRotateGamma = tiltObj.gammaAdjusted * -config.gammaCoef;
     styleRotateGamma = ( Math.abs(styleRotateGamma) < 2 ? 0 : styleRotateGamma );

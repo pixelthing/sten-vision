@@ -11,13 +11,15 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, p {
+  margin: 0;
   font-weight: normal;
   font-style: normal; }
 
 html, body {
   height: 100%;
-  margin: 0; }
+  margin: 0;
+  font-size: 16px; }
 
 .intro {
   display: none; }
@@ -26,6 +28,7 @@ html, body {
   position: relative;
   height: 100%;
   margin: 0 auto;
+  background: #000;
   -webkit-perspective: 800; }
   @media screen and (max-width: 479px) {
     .vision {
@@ -37,9 +40,6 @@ html, body {
 
 .vision__card {
   position: absolute;
-  display: -webkit-flex;
-  -webkit-align-items: center;
-  -webkit-justify-content: center;
   z-index: 1;
   width: 33.333%;
   height: 33.333%;
@@ -48,8 +48,13 @@ html, body {
   background: #eee;
   text-align: center;
   overflow: hidden;
-  -webkit-transition: all 200ms;
-  -webkit-transform: rotateX(0) rotateY(0) rotateZ(0); }
+  cursor: pointer;
+  -webkit-transition: all 200ms, z-index 0;
+  -webkit-transition-delay: 0, 200ms;
+  -webkit-transform: rotateX(0) rotateY(0); }
+  .vision--open .vision__card {
+    -webkit-transform: rotateX(0) rotateY(0) !important;
+    -webkit-transition: all 0; }
   @media screen and (max-width: 479px) {
     .vision__card {
       position: static;
@@ -98,6 +103,31 @@ html, body {
   left: 66.666%;
   top: 66.666%;
   background-color: #a1a1a1; }
+
+.vision--open .vision__card--open {
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: width 500ms, height 500ms, top 500ms, left 500ms, z-index 0;
+  -webkit-transition-delay: 0, 250ms, 250ms, 0, 0; }
+
+.vision__card__title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  padding: 0 1em;
+  width: 12em;
+  margin-left: -6em;
+  font-size: 2.5em;
+  -webkit-transform: scale(0.5);
+  -webkit-transition: all 500ms; }
+  .vision__card--open .vision__card__title {
+    top: 10%;
+    -webkit-transform: scale(1);
+    -webkit-transition: all 500ms, top 250ms, -webkit-transform 500ms;
+    -webkit-transition-delay: 0, 0ms, 500ms; }
 
 .vision__card__desc {
   display: none; }

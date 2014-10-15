@@ -116,7 +116,7 @@ html, body {
   left: 66.66%;
   top: 33.33%; }
   .vision__card--mr .vision__card__inner {
-    background: #d3d3d3;
+    background: #ccc;
     -webkit-transition-delay: 80ms; }
     .vision--open .vision__card--mr .vision__card__inner {
       -webkit-transition-delay: 520ms; }
@@ -127,7 +127,7 @@ html, body {
   left: 66.66%;
   top: 66.66%; }
   .vision__card--br .vision__card__inner {
-    background: #ccc;
+    background: #a1a1a1;
     -webkit-transition-delay: 100ms; }
     .vision--open .vision__card--br .vision__card__inner {
       -webkit-transition-delay: 600ms; }
@@ -138,7 +138,7 @@ html, body {
   left: 33.33%;
   top: 66.66%; }
   .vision__card--bm .vision__card__inner {
-    background: #bbb;
+    background: #b2b2b2;
     -webkit-transition-delay: 120ms; }
     .vision--open .vision__card--bm .vision__card__inner {
       -webkit-transition-delay: 680ms; }
@@ -149,7 +149,7 @@ html, body {
   left: 0;
   top: 66.66%; }
   .vision__card--bl .vision__card__inner {
-    background: #b2b2b2;
+    background: #bbb;
     -webkit-transition-delay: 140ms; }
     .vision--open .vision__card--bl .vision__card__inner {
       -webkit-transition-delay: 760ms; }
@@ -160,7 +160,7 @@ html, body {
   left: 0;
   top: 33.33%; }
   .vision__card--ml .vision__card__inner {
-    background: #a1a1a1;
+    background: #d3d3d3;
     -webkit-transition-delay: 160ms; }
     .vision--open .vision__card--ml .vision__card__inner {
       -webkit-transition-delay: 840ms; }

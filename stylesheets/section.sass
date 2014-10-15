@@ -54,6 +54,7 @@
   .vision__card--open &
     -webkit-transform:  scale(1)
     opacity:          1
+    -webkit-transition: all 500ms
     -webkit-transition-delay: 0 !important
 
 $house-of-cards: ( (tl, top, left, 1, #eee), (tm, top, middle, 2, #E6E6E6), (tr, top, right, 3, #ddd), (mr, middle, right, 4, #ccc), (br, bottom, right, 5, #a1a1a1), (bm, bottom, middle, 6, #b2b2b2), (bl, bottom, left, 7, #bbb), (ml, middle, left, 8, #d3d3d3), (mm, middle, middle, 9, #F9E800) )
@@ -91,7 +92,7 @@ $house-of-cards: ( (tl, top, left, 1, #eee), (tm, top, middle, 2, #E6E6E6), (tr,
         background: nth($position, 5)
         -webkit-transition-delay: unquote("#{20*nth($position, 4)}ms")
         .vision--open &
-          -webkit-transition-delay: unquote("#{80*nth($position, 4) + 200}ms")
+          -webkit-transition-delay: unquote("#{80*nth($position, 4) + 500}ms")
       &.vision__card--open 
         .vision__card__inner
           -webkit-transform:  scale(.94) translateX( +card-transform(nth($position, 3)) ) translateY( +card-transform(nth($position, 2)) )

@@ -1,0 +1,1 @@
+var touch=function(){var n=function(){t()},t=function(){document.addEventListener("touchmove",function(n){n.preventDefault()},!1)};return{init:n}}();touch.init();

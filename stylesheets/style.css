@@ -29,7 +29,8 @@ html, body {
   height: 100%;
   margin: 0 auto;
   background: #000;
-  -webkit-perspective: 800; }
+  -webkit-perspective: 800;
+  -webkit-transform: translateZ(0); }
   @media screen and (max-width: 479px) {
     .vision {
       display: block;

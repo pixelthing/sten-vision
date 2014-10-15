@@ -16,11 +16,13 @@ h1, h2, h3, h4, p {
   font-weight: normal;
   font-style: normal; }
 
+p {
+  margin: 0.5em 0; }
+
 html, body {
   height: 100%;
   margin: 0;
-  font-size: 16px;
-  overlow: hidden; }
+  font-size: 16px; }
 
 .intro {
   display: none; }
@@ -47,6 +49,7 @@ html, body {
   height: 33.333%;
   text-align: center;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   -webkit-transition: all 200ms, z-index 0;
   -webkit-transition-delay: 0, 400ms;
   -webkit-transform: rotateX(0) rotateY(0);
@@ -178,9 +181,57 @@ html, body {
   .vision__card--mm.vision__card--open .vision__card__inner {
     -webkit-transform: scale(0.94) translateX(0) translateY(0); }
 
+.vision__card__inner__inner {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: -3em 0 0;
+  padding: 0 10%;
+  line-height: 1.4;
+  -webkit-transition: all 500ms;
+  -webkit-transition-delay: 0; }
+  .vision__card--open .vision__card__inner__inner {
+    opacity: 1;
+    -webkit-transition-delay: 800ms;
+    -webkit-transform: translateY(-25vh); }
+  .vision__card--open.vision__card--0 .vision__card__inner__inner {
+    border-color: #000;
+    -webkit-transform: translateY(-15vh); }
+  .vision__card--long .vision__card__inner__inner {
+    margin: -8em 0 0; }
+
 .vision__card__title {
-  padding: 20% 10% 0;
+  position: relative;
   font-size: 4em; }
+  .vision__card__title:after {
+    content: "";
+    position: absolute;
+    bottom: -1em;
+    left: 35%;
+    right: 35%;
+    display: block;
+    margin: 0 auto;
+    border-top: 5px solid #07e3d4;
+    height: 0;
+    opacity: 0;
+    -webkit-transition: all 500ms;
+    -webkit-transition-delay: 0; }
+    .vision__card--open .vision__card__title:after {
+      opacity: 1;
+      bottom: -0.5em;
+      -webkit-transition-delay: 900ms; }
+    .vision__card--0 .vision__card__title:after {
+      border-color: #000; }
 
 .vision__card__desc {
-  display: none; }
+  margin-top: 3em;
+  font-size: 1.8em;
+  opacity: 0;
+  -webkit-transition: all 500ms;
+  -webkit-transition-delay: 0;
+  -webkit-transform: translateY(2em); }
+  .vision__card--open .vision__card__desc {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -webkit-transition-delay: 1000ms; }

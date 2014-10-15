@@ -19,7 +19,8 @@ h1, h2, h3, h4, p {
 html, body {
   height: 100%;
   margin: 0;
-  font-size: 16px; }
+  font-size: 16px;
+  overlow: hidden; }
 
 .intro {
   display: none; }
@@ -44,15 +45,12 @@ html, body {
   z-index: 1;
   width: 33.333%;
   height: 33.333%;
-  padding-top: 100%;
-  padding: 1em;
-  background: #eee;
   text-align: center;
-  overflow: hidden;
   cursor: pointer;
   -webkit-transition: all 200ms, z-index 0;
-  -webkit-transition-delay: 0, 200ms;
-  -webkit-transform: rotateX(0) rotateY(0); }
+  -webkit-transition-delay: 0, 400ms;
+  -webkit-transform: rotateX(0) rotateY(0);
+  -webkit-transform-style: preserve-3d; }
   .vision--open .vision__card {
     -webkit-transform: rotateX(0) rotateY(0) !important;
     -webkit-transition: all 0; }
@@ -61,74 +59,128 @@ html, body {
       position: static;
       width: auto; } }
 
-.vision__card--0 {
-  left: 33.333%;
-  top: 33.333%;
-  background-color: #F9E800; }
+.vision__card--open {
+  z-index: 3; }
 
-.vision__card--1 {
+.vision__card__inner {
+  position: relative;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  opacity: 1;
+  -webkit-transform: scale(0.333);
+  -webkit-transform-origin: 50%;
+  -webkit-transition: all 300ms; }
+  .vision--open .vision__card__inner {
+    -webkit-transform: scale(0.333) translateZ(-100px); }
+  .vision__card--open .vision__card__inner {
+    -webkit-transform: scale(1);
+    opacity: 1;
+    -webkit-transition-delay: 0 !important; }
+
+.vision__card--tl {
   left: 0;
   top: 0; }
+  .vision__card--tl .vision__card__inner {
+    background: #eee;
+    -webkit-transition-delay: 20ms; }
+    .vision--open .vision__card--tl .vision__card__inner {
+      -webkit-transition-delay: 280ms; }
+  .vision__card--tl.vision__card--open .vision__card__inner {
+    -webkit-transform: scale(0.94) translateX(36%) translateY(36%); }
 
-.vision__card--2 {
-  left: 33.333%;
-  top: 0;
-  background-color: #E6E6E6; }
+.vision__card--tm {
+  left: 33.33%;
+  top: 0; }
+  .vision__card--tm .vision__card__inner {
+    background: #E6E6E6;
+    -webkit-transition-delay: 40ms; }
+    .vision--open .vision__card--tm .vision__card__inner {
+      -webkit-transition-delay: 360ms; }
+  .vision__card--tm.vision__card--open .vision__card__inner {
+    -webkit-transform: scale(0.94) translateX(0) translateY(36%); }
 
-.vision__card--3 {
-  left: 66.666%;
-  top: 0;
-  background-color: #ddd; }
+.vision__card--tr {
+  left: 66.66%;
+  top: 0; }
+  .vision__card--tr .vision__card__inner {
+    background: #ddd;
+    -webkit-transition-delay: 60ms; }
+    .vision--open .vision__card--tr .vision__card__inner {
+      -webkit-transition-delay: 440ms; }
+  .vision__card--tr.vision__card--open .vision__card__inner {
+    -webkit-transform: scale(0.94) translateX(-36%) translateY(36%); }
 
-.vision__card--4 {
+.vision__card--mr {
+  left: 66.66%;
+  top: 33.33%; }
+  .vision__card--mr .vision__card__inner {
+    background: #d3d3d3;
+    -webkit-transition-delay: 80ms; }
+    .vision--open .vision__card--mr .vision__card__inner {
+      -webkit-transition-delay: 520ms; }
+  .vision__card--mr.vision__card--open .vision__card__inner {
+    -webkit-transform: scale(0.94) translateX(-36%) translateY(0); }
+
+.vision__card--br {
+  left: 66.66%;
+  top: 66.66%; }
+  .vision__card--br .vision__card__inner {
+    background: #ccc;
+    -webkit-transition-delay: 100ms; }
+    .vision--open .vision__card--br .vision__card__inner {
+      -webkit-transition-delay: 600ms; }
+  .vision__card--br.vision__card--open .vision__card__inner {
+    -webkit-transform: scale(0.94) translateX(-36%) translateY(-36%); }
+
+.vision__card--bm {
+  left: 33.33%;
+  top: 66.66%; }
+  .vision__card--bm .vision__card__inner {
+    background: #bbb;
+    -webkit-transition-delay: 120ms; }
+    .vision--open .vision__card--bm .vision__card__inner {
+      -webkit-transition-delay: 680ms; }
+  .vision__card--bm.vision__card--open .vision__card__inner {
+    -webkit-transform: scale(0.94) translateX(0) translateY(-36%); }
+
+.vision__card--bl {
   left: 0;
-  top: 33.333%;
-  background-color: #d3d3d3; }
+  top: 66.66%; }
+  .vision__card--bl .vision__card__inner {
+    background: #b2b2b2;
+    -webkit-transition-delay: 140ms; }
+    .vision--open .vision__card--bl .vision__card__inner {
+      -webkit-transition-delay: 760ms; }
+  .vision__card--bl.vision__card--open .vision__card__inner {
+    -webkit-transform: scale(0.94) translateX(36%) translateY(-36%); }
 
-.vision__card--5 {
-  left: 66.666%;
-  top: 33.333%;
-  background-color: #ccc; }
-
-.vision__card--6 {
+.vision__card--ml {
   left: 0;
-  top: 66.666%;
-  background-color: #bbb; }
+  top: 33.33%; }
+  .vision__card--ml .vision__card__inner {
+    background: #a1a1a1;
+    -webkit-transition-delay: 160ms; }
+    .vision--open .vision__card--ml .vision__card__inner {
+      -webkit-transition-delay: 840ms; }
+  .vision__card--ml.vision__card--open .vision__card__inner {
+    -webkit-transform: scale(0.94) translateX(36%) translateY(0); }
 
-.vision__card--7 {
-  left: 33.333%;
-  top: 66.666%;
-  background-color: #b2b2b2; }
-
-.vision__card--8 {
-  left: 66.666%;
-  top: 66.666%;
-  background-color: #a1a1a1; }
-
-.vision--open .vision__card--open {
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  -webkit-transition: width 500ms, height 500ms, top 500ms, left 500ms, z-index 0;
-  -webkit-transition-delay: 0, 250ms, 250ms, 0, 0; }
+.vision__card--mm {
+  left: 33.33%;
+  top: 33.33%; }
+  .vision__card--mm .vision__card__inner {
+    background: #F9E800;
+    -webkit-transition-delay: 180ms; }
+    .vision--open .vision__card--mm .vision__card__inner {
+      -webkit-transition-delay: 920ms; }
+  .vision__card--mm.vision__card--open .vision__card__inner {
+    -webkit-transform: scale(0.94) translateX(0) translateY(0); }
 
 .vision__card__title {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  padding: 0 1em;
-  width: 12em;
-  margin-left: -6em;
-  font-size: 2.5em;
-  -webkit-transform: scale(0.5);
-  -webkit-transition: all 500ms; }
-  .vision__card--open .vision__card__title {
-    top: 10%;
-    -webkit-transform: scale(1);
-    -webkit-transition: all 500ms, top 250ms, -webkit-transform 500ms;
-    -webkit-transition-delay: 0, 0ms, 500ms; }
+  padding: 20% 10% 0;
+  font-size: 4em; }
 
 .vision__card__desc {
   display: none; }

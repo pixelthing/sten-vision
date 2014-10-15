@@ -1,7 +1,5 @@
 = media-query($requested-size)
-
   @each $size in $viewport-sizes
-
     @if nth($size, 1) == $requested-size
       @media screen and (unquote("#{nth($size, 2)}-width:") nth($size, 3))
         @content

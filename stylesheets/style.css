@@ -195,10 +195,10 @@ html, body {
   .vision__card--open .vision__card__inner__inner {
     opacity: 1;
     -webkit-transition-delay: 800ms;
-    -webkit-transform: translateY(-25vh); }
+    -webkit-transform: translateY(-50%); }
   .vision__card--open.vision__card--0 .vision__card__inner__inner {
     border-color: #000;
-    -webkit-transform: translateY(-15vh); }
+    -webkit-transform: translateY(-30%); }
   .vision__card--long .vision__card__inner__inner {
     margin: -8em 0 0; }
 

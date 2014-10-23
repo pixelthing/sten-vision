@@ -29,15 +29,17 @@
   -webkit-transition-delay: 0, 400ms
   -webkit-transform:  rotateX(0) rotateY(0)
   -webkit-transform-style: preserve-3d
+  &.vision__card--flipped
+    -webkit-transform:  rotateX(0) rotateY(180deg) !important
   .vision--open &
-    -webkit-transform:  rotateX(0) rotateY(0) !important
-    -webkit-transition: all 0
+    -webkit-transform:  rotateX(0) rotateY(0) translateZ(-100px) !important
   +media-query(xxs)
     position:         static
     width:            auto
 
 .vision__card--open
   z-index: 3
+  -webkit-transition-delay: 0
 
 .vision__card__inner
   position:           relative
@@ -49,8 +51,6 @@
   -webkit-transform:  scale(0.333)
   -webkit-transform-origin:  50%
   -webkit-transition: all 300ms
-  .vision--open &
-    -webkit-transform:  scale(0.333) translateZ(-100px)
   .vision__card--open &
     -webkit-transform:  scale(1)
     opacity:          1
@@ -88,11 +88,11 @@ $house-of-cards: ( (tl, top, left, 1, #eee), (tm, top, middle, 2, #E6E6E6), (tr,
     .vision__card--#{nth($position, 1)}
       left: +card-topleft(nth($position, 3))
       top:  +card-topleft(nth($position, 2))
+      -webkit-transition-delay: unquote("#{20*nth($position, 4)}ms")
+      .vision--open &
+        -webkit-transition-delay: unquote("#{80*nth($position, 4) + 500}ms"), 0
       .vision__card__inner
         background: nth($position, 5)
-        -webkit-transition-delay: unquote("#{20*nth($position, 4)}ms")
-        .vision--open &
-          -webkit-transition-delay: unquote("#{80*nth($position, 4) + 500}ms")
       &.vision__card--open 
         .vision__card__inner
           -webkit-transform:  scale(.94) translateX( +card-transform(nth($position, 3)) ) translateY( +card-transform(nth($position, 2)) )
